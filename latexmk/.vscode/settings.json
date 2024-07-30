@@ -1,0 +1,42 @@
+{
+    "latex-workshop.latex.outDir": "./out",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-auxdir=.cache/latex",
+                "-outdir=%OUTDIR%",
+                "-pdf",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+    ],
+    "[latex]": {
+        "editor.tabSize": 2,
+        "editor.wordWrap": "on",
+        "editor.stickyScroll.enabled": false,
+        "editor.lineNumbers": "off",
+        "editor.folding": false,
+        "editor.minimap.enabled": false
+    },
+    "latex-workshop.latex.autoBuild.run": "onFileChange",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.viewer.command": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "0",
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-r",
+        "-b",
+        "%LINE%",
+        "%PDF%",
+        "%TEX%",
+    ],
+}
