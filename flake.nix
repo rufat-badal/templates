@@ -8,7 +8,7 @@
         description = "A very basic flake";
       };
       latexmk = {
-        path = ./latexmk;
+        path = ./latex;
         description = "A simple LaTeX template for writing documents with latexmk";
       };
     };
