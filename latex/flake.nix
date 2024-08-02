@@ -1,16 +1,27 @@
 {
-  description = "A simple LaTeX template for writing documents with latexmk";
+  description = "A basic LaTeX environment";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
+    let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
       {
-        packages.default = pkgs.callPackage ./default.nix { };
-      });
+        devShell = pkgs.mkShell {
+          buildInputs = with pkgs; [
+          (texlive.combine {
+            inherit (texlive)
+            latexmk
+            scheme-basic
+            latexindent
+            ;
+          })
+        ];
+      };
+    });
 }
