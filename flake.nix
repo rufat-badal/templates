@@ -7,7 +7,7 @@
         path = ./trivial;
         description = "A very basic flake";
       };
-      latexmk = {
+      latex = {
         path = ./latex;
         description = "A simple LaTeX template for writing documents with latexmk";
       };
