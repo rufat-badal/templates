@@ -3,9 +3,14 @@
 pkgs.stdenv.mkDerivation {
   name = "pdf";
   src = ./.;
-  buildInputs = with pkgs; [
-    (texlive.combine { inherit (texlive) latexmk scheme-basic; })
-  ];
+  buildInputs = with pkgs; [(
+    texlive.combine {
+      inherit (texlive)
+      latexmk
+      scheme-basic
+      ;
+    }
+  )];
   buildPhase = ''
     mkdir -p .cache/latex
     latexmk -interaction=nonstopmode -auxdir=.cache/latex -pdf main.tex
